@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AAPM TG-101 線量制約チェッカー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AAPM TG-101 線量制約チェッカー</h1>
+    <p class="subtitle">Stereotactic Body Radiation Therapy (SBRT) 線量制約</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="fraction-selector">
+        <label>分割数を選択</label>
+        <div class="fraction-buttons">
+          <button class="fraction-btn active" data-fx="1">1回</button>
+          <button class="fraction-btn" data-fx="3">3回</button>
+          <button class="fraction-btn" data-fx="4">4回</button>
+          <button class="fraction-btn" data-fx="5">5回</button>
+        </div>
+      </div>
+      <div class="filter-selector">
+        <label>臓器カテゴリ</label>
+        <select id="categoryFilter">
+          <option value="all">すべて</option>
+          <option value="serial">直列臓器</option>
+          <option value="parallel">並列臓器</option>
+        </select>
+      </div>
+      <div class="search-box">
+        <label>臓器名検索</label>
+        <input type="text" id="searchInput" placeholder="例: 脊髄, 食道...">
+      </div>
+    </section>
+
+    <section class="checker-section">
+      <h2>線量入力チェッカー</h2>
+      <p class="section-desc">計画線量を入力して制約との適合を確認します</p>
+      <div id="checkerTable"></div>
+    </section>
+
+    <section class="reference-section">
+      <h2>参照テーブル</h2>
+      <p class="section-desc">AAPM TG-101 Table 2 より (Fx = <span id="fxLabel">1</span> 回)</p>
+      <div id="referenceTable"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>参考文献: Benedict SH, et al. Stereotactic body radiation therapy: The report of AAPM Task Group 101. <em>Med Phys.</em> 2010;37(8):4078-4101.</p>
+    <p class="disclaimer">本アプリは教育・参考目的です。臨床判断は必ず専門医に従ってください。</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
